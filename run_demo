@@ -1,0 +1,30 @@
+#!/bin/bash
+
+shopt -s nocasematch
+
+cd $(dirname $0)
+
+DEMO="$1"
+shift
+
+DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
+
+function web_start() {
+	echo "Starting all agents and controllers, this may take a moment."
+	DOCKERHOST=${DOCKERHOST} docker-compose -f .docker/docker-compose.demo.yml up -d
+	exit 0
+}
+
+function web_down() {
+	docker-compose -f .docker/docker-compose.demo.yml down
+	exit 0
+}
+
+if [ "$DEMO" = "webstart" ]; then
+    web_start
+elif [ "$DEMO" = "webdown" ]; then
+    web_down
+else
+	echo "Please choose from from 'webstart' or 'webdown'."
+	exit 1
+fi

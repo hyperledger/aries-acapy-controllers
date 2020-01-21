@@ -48,7 +48,7 @@ services:
     # Controllers
     faber-controller:
         build:
-            context: ../demo/controllers/faber-controller/
+            context: ../faber-controller/
         ports:
             - 9021:80
         networks:
@@ -59,7 +59,7 @@ services:
             - FABER_AGENT_URL=faber-agent
     alice-controller:
         build:
-            context: ../demo/controllers/alice-controller/
+            context: ../alice-controller/
         ports:
             - 9031:80
         networks:
@@ -68,7 +68,7 @@ services:
             - alice-agent
     acme-controller:
         build:
-            context: ../demo/controllers/acme-controller/
+            context: ../acme-controller/
         ports:
             - 9041:3000
         networks:
