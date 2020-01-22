@@ -33,7 +33,7 @@ services:
     acme-agent:
         command: ['acme --port 8040']
         build:
-            context: https://github.com/hyperledger/aries-cloudagent-python.git
+            context: https://github.com/amanji/aries-cloudagent-python.git
             dockerfile: ./docker/Dockerfile.demo
         ports:
             - 8040-8047:8040-8047
