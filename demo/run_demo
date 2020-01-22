@@ -11,12 +11,12 @@ DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
 
 function web_start() {
 	echo "Starting all agents and controllers, this may take a moment."
-	DOCKERHOST=${DOCKERHOST} docker-compose -f .docker/docker-compose.demo.yml up -d
+	DOCKERHOST=${DOCKERHOST} docker-compose -f ../.docker/docker-compose.demo.yml up -d
 	exit 0
 }
 
 function web_down() {
-	docker-compose -f .docker/docker-compose.demo.yml down
+	docker-compose -f ../.docker/docker-compose.demo.yml down
 	exit 0
 }
 
