@@ -6,9 +6,9 @@ Web controllers for the [Aries Cloud Agent - Python (ACA-Py)](https://github.com
 
 - [Running With Docker](#running-with-docker)
 - [Running Locally](#running-locally)
-    - [Prerequisites](#prerequisites)'
-        - [ACA-py Agents](#aca-py-agents)
+    - [Prerequisites](#prerequisites)
         - [VON Network](#von-network)
+        - [ACA-py Agents](#aca-py-agents)
     - [Running Controllers](#running-controllers)
 - [Demo Walkthrough](#demo-walkthrough)
     1. [Alice graduates from Faber College](#1-alice-graduates-from-faber-college)
@@ -27,15 +27,17 @@ This will be the easiest setup option. Please see the [Docker Web Demo](./demo/R
 
 #### Prerequesites
 
+##### VON Network
+
+The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally) or [here](./demo/README_web.md#von-network).
+
+**Note: the demos will not work without a local VON Network running.**
+
 ##### ACA-py Agents
 
 Controllers are dependent on their respective cloud agents. Please follow instructions for [running agents locally](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#running-locally) or [running agents in docker](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#running-in-docker) as controllers wont do anything if agents are not running.
 
-##### VON Network
-
-The web demo also relies on running a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally) or [here](./demo/README_web.md#von-network).
-
-**Note: the web demo will not work without a local VON Network running.**
+**Note: the controllers will not work without a local VON Network running.**
 
 #### Running Controllers
 
