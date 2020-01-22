@@ -1,6 +1,6 @@
- # Web Demo
+ # Docker Web Demo
 
- This interactive web demo follows the [Alice/Faber Python demo](#the-alicefaber-python-demo) using a series of web controllers. The controllers are deisgned to provide an easy-to-use interface to showcase agent-to-agent interactions.
+ This interactive web demo follows the [Alice/Faber Python demo](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#the-alicefaber-python-demo) using a series of web controllers. The controllers are deisgned to provide an easy-to-use interface to showcase agent-to-agent interactions.
  
 ## Table of Contents
 
@@ -49,4 +49,4 @@ $ ./run_demo webdown
 
 ### Demo Walkthrough
 
-Instructions for the demo walkthrough can be viewed [here]().
+Instructions for the demo walkthrough can be viewed [here](../README.md#demo-walkthrough).
