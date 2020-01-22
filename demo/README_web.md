@@ -49,4 +49,4 @@ $ ./run_demo webdown
 
 ### Demo Walkthrough
 
-Instructions for the demo walkthrough can be viewed [here](../README.md#demo-walkthrough).
+Instructions for the Faber-Alice-Acme demo walkthrough can be viewed [here](../README.md#demo-walkthrough).
