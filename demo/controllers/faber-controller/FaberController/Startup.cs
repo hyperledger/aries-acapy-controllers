@@ -33,7 +33,7 @@ namespace FaberController
                 var agentUrl = Environment.GetEnvironmentVariable("FABER_AGENT_URL");
                 var port = 8021;
 
-                if (agentUrl == null && agentUrl == "") {
+                if (agentUrl == null || agentUrl == "") {
                     agentUrl = "localhost";
                 }
 

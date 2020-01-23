@@ -69,7 +69,9 @@ In the Faber browser tab, the home screen should display 4 options to choose fro
 
 Navigate to the `New` tab where you will see a button to `Create a New Invitation`. Upon clicking that you will see a JSON invitation object and an invitation URL (which is an encoded version of invitation object). Notice the different fields in the invitation object.
 
-Copy either the invitation object or the URL (there is a handy copy button to the right of each of the fields). You will pass the invitation over to Alice.
+Copy either the invitation object or the URL. There is a handy copy button to the right of each of the fields. You will pass the invitation over to Alice.
+
+_Note: The copy function may not work on Safari browsers. You will have to manually copy the the invitation object or URL if you plan to use Safari._
 
 _Aside: If you navigate to the `Pending` tab you will see a new invitation card with a connection ID and a timestamp for when the invitation was created. This is a handy way to determine whether an invitee has accepted an invitation request or not._
 
