@@ -1,6 +1,6 @@
 # Aries Cloud Agent - Python (ACA-py) Demo Controllers
 
-Web controllers for the [Aries Cloud Agent - Python (ACA-Py)](https://github.com/hyperledger/aries-cloudagent-python) Faber/Alice agent [demo](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#the-alicefaber-python-demo) aimed primarily at business or first-time Aries developers. The controllers are deisgned to provide an easy-to-use interface to showcase agent-to-agent interactions.
+Web controllers for the [Aries Cloud Agent - Python (ACA-Py)](https://github.com/hyperledger/aries-cloudagent-python) Faber/Alice agent [demo](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#the-alicefaber-python-demo) aimed primarily at business or first-time Aries developers. The controllers are designed to provide an easy-to-use interface to showcase agent-to-agent interactions.
 
 _See [Note to Developers](#note-to-developers) if you are a developer looking for specific information about the demo controller codebases._
 
@@ -67,7 +67,7 @@ _What an auspicious day! The many sleepless nights are over. Alice made it throu
 
 In the Faber browser tab, the home screen should display 4 options to choose from. The `Connections` page is where Faber can view, issue invitations and accept connections.
 
-Navigate to the `New` tab where you will see a button to `Create a New Invitation`. Upon clicking that you will see a JSON invitation object and an invitation URL (which is an encoded version of invitation object). Notice the different fields in the invitation object.
+Navigate to the `New` tab where you will see a button `Create a New Invitation`. Upon clicking that you will see a JSON invitation object and an invitation URL (which is an encoded version of invitation object). Notice the different fields in the invitation object.
 
 Copy either the invitation object or the URL. There is a handy copy button to the right of each of the fields. You will pass the invitation over to Alice.
 
@@ -83,7 +83,7 @@ Open the Alice browser tab, and on the home screen you will see 3 options to cho
 
 Navigate to the `Accept` tab where you will see the option to either paste the invitation object or the invitation URL (depending on which one you copied). If you are successful the `Accept Invitation` button will activate. Press it.
 
-Navigate over to the `Active` tab to see a connection to Faber. Similary, Faber's  `Active` connections tab will show a connection to Alice.
+Navigate over to the `Active` tab to see a connection to Faber. Similarly, Faber's  `Active` connections tab will show a connection to Alice.
 
 #### 3. Faber issues a Degree credential to Alice
 
@@ -102,14 +102,14 @@ Open the Alice browser tab. In the home screen you will see a `Credentials` opti
 #### 4. Alice applies for a job at Acme
 _Alice is super excited to apply for her job. She sends an invitation request to Acme._
 
-See if you can follow the same approcah above to connect Faber to Alice. In this case Alice will create a new invitation.
+See if you can follow the same approach above to connect Faber to Alice. In this case Alice will create a new invitation.
 
 #### 5. Acme agrees to interview Alice
 _Acme agrees to connect with Alice._
 
-See if you can follow the same approcah above to connect Faber to Alice. In this case, Acme will accept the invitation. Acme has all of the same options in its `Connection` page as Faber and Alice.
+See if you can follow the same approach above to connect Faber to Alice. In this case, Acme will accept the invitation. Acme has all of the same options in its `Connection` page as Faber and Alice.
 
-If you are successful Alice and Acme will have active connections with eachother.
+If you are successful Alice and Acme will have active connections with each other.
 
 #### 6. Acme requests a proof of education from Alice
 _Acme was floored by Alice's resume and interview. They just need her to show a proof of her education (for HR purposes) and they will offer her a job._
