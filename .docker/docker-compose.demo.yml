@@ -64,15 +64,15 @@ services:
     alice-controller:
         build:
             context: ../demo/controllers/alice-controller/
+            args:
+                - RUNMODE=${RUNMODE}
+                - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
         ports:
             - 9031:80
         networks:
             - aca
         depends_on:
             - alice-agent
-        environment:
-            - RUNMODE=${RUNMODE}
-            - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
     acme-controller:
         build:
             context: ../demo/controllers/acme-controller/

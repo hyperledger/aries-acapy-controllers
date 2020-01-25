@@ -31,18 +31,13 @@ namespace FaberController
             services.AddHttpClient<FCAgentService>(c =>
             {
                 var agentUrl = Environment.GetEnvironmentVariable("FABER_AGENT_HOST");
-                var runmode = Environment.GetEnvironmentVariable("RUNMODE");
-                var port = ":8021";
+                var port = 8021;
 
                 if (agentUrl == null || agentUrl == "") {
                     agentUrl = "localhost";
                 }
 
-                if (runmode == "pwd") {
-                    port = "";
-                }
-
-                var formattedAgentUrl = String.Format("http://{0}", agentUrl) + port;
+                var formattedAgentUrl = String.Format("http://{0}:{1}", agentUrl, port);
 
                 Console.WriteLine("Agent is running on: " + formattedAgentUrl);
 

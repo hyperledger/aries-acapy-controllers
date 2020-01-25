@@ -9,10 +9,12 @@ shift
 
 function web_start() {
 	echo "Starting all agents and controllers, this may take a moment."
+
+	FABER_AGENT_HOST="faber-agent"
+	ALICE_AGENT_HOST="localhost"
+	ACME_AGENT_HOST="acme-agent"
+
 	if [ -z "${PWD_HOST_FQDN}" ]; then
-		FABER_AGENT_HOST="faber-agent"
-		ALICE_AGENT_HOST="localhost"
-		ACME_AGENT_HOST="acme-agent"
 		DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
 		RUNMODE="docker"
 	else
@@ -27,9 +29,8 @@ function web_start() {
 			export ETH_CONFIG="eth0"
 		fi
 		MY_HOST=`ifconfig ${ETH_CONFIG} | grep inet | cut -d':' -f2 | cut -d' ' -f1 | sed 's/\./\-/g'`
-		FABER_AGENT_HOST="ip${MY_HOST}-${SESSION_ID}-8021.direct.${PWD_HOST_FQDN}"
 		ALICE_AGENT_HOST="ip${MY_HOST}-${SESSION_ID}-8031.direct.${PWD_HOST_FQDN}"
-		ACME_AGENT_HOST="ip${MY_HOST}-${SESSION_ID}-8041.direct.${PWD_HOST_FQDN}"
+		DOCKERHOST="ip${MY_HOST}-${SESSION_ID}-{PORT}.direct.${PWD_HOST_FQDN}"
 		RUNMODE="pwd"
 	fi
 

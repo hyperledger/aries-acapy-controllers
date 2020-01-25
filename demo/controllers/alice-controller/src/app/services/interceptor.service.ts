@@ -3,20 +3,18 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/c
 
 import { Observable } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
   hostname: string;
-  port: number;
+  port: string;
   formattedAgentUrl: string;
 
   constructor() {
-    this.hostname = 'localhost';
-    this.port = 8031;
-    this.formattedAgentUrl = `http://${this.hostname}:${this.port}`;
+    this.hostname = $ENV.RUNMODE === 'pwd' ? $ENV.ALICE_AGENT_HOST : 'localhost';
+    this.port = $ENV.RUNMODE === 'pwd' ? '' : ':8031';
+    this.formattedAgentUrl = `http://${this.hostname}` + this.port;
     console.log('Agent is running on: ' + this.formattedAgentUrl);
   }
 
