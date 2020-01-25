@@ -15,20 +15,18 @@ function web_start() {
 	ACME_AGENT_HOST="acme-agent"
 
 	if [ -z "${PWD_HOST_FQDN}" ]; then
-		DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
+		DOCKERHOST=$(docker run --rm --net=host eclipse/che-ip)
 		RUNMODE="docker"
 	else
 		PWD_HOST="${PWD_HOST_FQDN}"
-		if [ "$PWD_HOST_FQDN" = "labs.play-with-docker.com" ]
-		then
+		if [ "$PWD_HOST_FQDN" = "labs.play-with-docker.com" ]; then
 			export ETH_CONFIG="eth1"
-		elif [ "$PWD_HOST_FQDN" = "play-with-docker.vonx.io" ]
-		then
+		elif [ "$PWD_HOST_FQDN" = "play-with-docker.vonx.io" ]; then
 			export ETH_CONFIG="eth0"
 		else
 			export ETH_CONFIG="eth0"
 		fi
-		MY_HOST=`ifconfig ${ETH_CONFIG} | grep inet | cut -d':' -f2 | cut -d' ' -f1 | sed 's/\./\-/g'`
+		MY_HOST=$(ifconfig ${ETH_CONFIG} | grep inet | cut -d':' -f2 | cut -d' ' -f1 | sed 's/\./\-/g')
 		ALICE_AGENT_HOST="ip${MY_HOST}-${SESSION_ID}-8031.direct.${PWD_HOST_FQDN}"
 		DOCKERHOST="ip${MY_HOST}-${SESSION_ID}-{PORT}.direct.${PWD_HOST_FQDN}"
 		RUNMODE="pwd"
@@ -54,9 +52,9 @@ function web_down() {
 }
 
 if [ "$DEMO" = "webstart" ]; then
-    web_start
+	web_start
 elif [ "$DEMO" = "webdown" ]; then
-    web_down
+	web_down
 else
 	echo "Please choose from from 'webstart' or 'webdown'."
 	exit 1
