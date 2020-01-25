@@ -59,6 +59,7 @@ services:
         depends_on:
             - faber-agent
         environment:
+            - RUNMODE=${RUNMODE}
             - FABER_AGENT_HOST=${FABER_AGENT_HOST}
     alice-controller:
         build:
@@ -70,6 +71,7 @@ services:
         depends_on:
             - alice-agent
         environment:
+            - RUNMODE=${RUNMODE}
             - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
     acme-controller:
         build:
@@ -81,6 +83,7 @@ services:
         depends_on:
             - acme-agent
         environment:
+            - RUNMODE=${RUNMODE}
             - ACME_AGENT_HOST=${ACME_AGENT_HOST}
 
 networks:
