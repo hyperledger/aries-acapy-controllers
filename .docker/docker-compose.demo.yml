@@ -59,7 +59,7 @@ services:
         depends_on:
             - faber-agent
         environment:
-            - FABER_AGENT_URL=faber-agent
+            - FABER_AGENT_HOST=${FABER_AGENT_HOST}
     alice-controller:
         build:
             context: ../demo/controllers/alice-controller/
@@ -69,6 +69,8 @@ services:
             - aca
         depends_on:
             - alice-agent
+        environment:
+            - ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
     acme-controller:
         build:
             context: ../demo/controllers/acme-controller/
@@ -79,7 +81,7 @@ services:
         depends_on:
             - acme-agent
         environment:
-            - ACME_AGENT_URL=acme-agent
+            - ACME_AGENT_HOST=${ACME_AGENT_HOST}
 
 networks:
     aca:
