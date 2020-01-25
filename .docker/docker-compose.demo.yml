@@ -11,10 +11,11 @@ services:
             - 8020-8027:8020-8027
         networks:
             - aca
-            - von
         environment:
-            - RUNMODE=docker
+            - RUNMODE=${RUNMODE}
             - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
         tty: true
     alice-agent:
         command: ['alice --port 8030']
@@ -25,10 +26,11 @@ services:
             - 8030-8037:8030-8037
         networks:
             - aca
-            - von
         environment:
-            - RUNMODE=docker
+            - RUNMODE=${RUNMODE}
             - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
         tty: true
     acme-agent:
         command: ['acme --port 8040']
@@ -39,10 +41,11 @@ services:
             - 8040-8047:8040-8047
         networks:
             - aca
-            - von
         environment:
-            - RUNMODE=docker
+            - RUNMODE=${RUNMODE}
             - DOCKERHOST=${DOCKERHOST}
+            - LEDGER_URL=${LEDGER_URL}
+            - GENESIS_URL=${GENESIS_URL}
         tty: true
 
     # Controllers
@@ -80,6 +83,3 @@ services:
 
 networks:
     aca:
-    von:
-        external:
-            name: von_von

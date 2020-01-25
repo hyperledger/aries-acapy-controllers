@@ -7,11 +7,37 @@ cd $(dirname $0)
 DEMO="$1"
 shift
 
-DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
-
 function web_start() {
 	echo "Starting all agents and controllers, this may take a moment."
-	DOCKERHOST=${DOCKERHOST} docker-compose -f ../.docker/docker-compose.demo.yml up -d
+	if [ -z "${PWD_HOST_FQDN}" ]; then
+		DOCKERHOST=`docker run --rm --net=host eclipse/che-ip`
+		RUNMODE="docker"
+	else
+		PWD_HOST="${PWD_HOST_FQDN}"
+		if [ "$PWD_HOST_FQDN" = "labs.play-with-docker.com" ]
+		then
+			export ETH_CONFIG="eth1"
+		elif [ "$PWD_HOST_FQDN" = "play-with-docker.vonx.io" ]
+		then
+			export ETH_CONFIG="eth0"
+		else
+			export ETH_CONFIG="eth0"
+		fi
+		MY_HOST=`ifconfig ${ETH_CONFIG} | grep inet | cut -d':' -f2 | cut -d' ' -f1 | sed 's/\./\-/g'`
+		DOCKERHOST="ip${MY_HOST}-${SESSION_ID}-{PORT}.direct.${PWD_HOST_FQDN}"
+		RUNMODE="pwd"
+	fi
+
+	DOCKER_ENV="RUNMODE=${RUNMODE} DOCKERHOST=${DOCKERHOST}"
+
+	if ! [ -z "$LEDGER_URL" ]; then
+		GENESIS_URL="${LEDGER_URL}/genesis"
+		DOCKER_ENV="${DOCKER_ENV} LEDGER_URL=${LEDGER_URL} GENESIS_URL=${GENESIS_URL}"
+	fi
+
+	export $DOCKER_ENV
+
+	docker-compose -f ../.docker/docker-compose.demo.yml up -d
 	exit 0
 }
 
