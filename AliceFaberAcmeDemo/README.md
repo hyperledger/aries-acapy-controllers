@@ -6,8 +6,8 @@ _See [Note to Developers](#note-to-developers) if you are a developer looking fo
 
 ## Table of Contents
 
-- [Running With Docker](#running-with-docker)
 - [Running in a Browser](#running-in-a-browser)
+- [Running With Docker](#running-with-docker)
 - [Running Locally](#running-locally)
     - [Prerequisites](#prerequisites)
         - [VON Network](#von-network)
