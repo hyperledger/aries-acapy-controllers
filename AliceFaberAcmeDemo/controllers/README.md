@@ -8,4 +8,4 @@ There are 3 flavours of controllers each with their own instructions on setup. P
 
 ### Demo Walkthrough
 
-Instructions for the Faber-Alice-Acme demo walkthrough can be viewed [here](../../README.md#demo-walkthrough).
+Instructions for the Faber-Alice-Acme demo walkthrough can be viewed [here](../README.md#demo-walkthrough).
