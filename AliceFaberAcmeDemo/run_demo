@@ -42,12 +42,12 @@ function web_start() {
 
 	export $DOCKER_ENV
 
-	docker-compose -f ../.docker/docker-compose.demo.yml up -d
+	docker-compose -f ./docker/docker-compose.demo.yml up -d
 	exit 0
 }
 
 function web_down() {
-	docker-compose -f ../.docker/docker-compose.demo.yml down
+	docker-compose -f ./docker/docker-compose.demo.yml down
 	exit 0
 }
 
