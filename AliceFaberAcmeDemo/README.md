@@ -40,7 +40,7 @@ _If you are interested in studying the APIs exposed by agents, click on the `802
 
 ### Running With Docker
 
-This will be the easiest setup option. Please see the [Docker Web Demo](./AliceFaberAcmeDemo/README_web.md) documentation for instructions.
+This will be the easiest setup option. Please see the [Docker Web Demo](./README_web.md) documentation for instructions.
 
 ### Running Locally
 
@@ -48,19 +48,19 @@ This will be the easiest setup option. Please see the [Docker Web Demo](./AliceF
 
 ##### VON Network
 
-The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally) or [here](./AliceFaberAcmeDemo/README_web.md#von-network).
+The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally) or [here](./README_web.md#von-network).
 
 **Note: the demos will not work without a local VON Network running.**
 
 ##### ACA-Py Agents
 
-Controllers are dependent on their respective cloud agents. Please follow instructions for [running agents locally](https://github.com/hyperledger/aries-cloudagent-python/tree/master/AliceFaberAcmeDemo#running-locally) or [running agents in docker](https://github.com/hyperledger/aries-cloudagent-python/tree/master/AliceFaberAcmeDemo#running-in-docker) as controllers wont do anything if agents are not running.
+Controllers are dependent on their respective cloud agents. Please follow instructions for [running agents locally](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#running-locally) or [running agents in docker](https://github.com/hyperledger/aries-cloudagent-python/tree/master/demo#running-in-docker) as controllers wont do anything if agents are not running.
 
 **Note: the controllers will not do anything without running their agents.**
 
 #### Running Controllers
 
-Please see the [Controller](./AliceFaberAcmeDemo/controllers/README.md) documentation for instructions on how to run controllers in your local environment.
+Please see the [Controller](./controllers/README.md) documentation for instructions on how to run controllers in your local environment.
 
 ### Demo Walkthrough
 
@@ -150,4 +150,4 @@ Congratulations! You have finished the Faber-Alice-Acme demo. This is a good cha
 
 Each controller used in the demo is built with a different web framework, which is intended to further demonstrate the versatility of agents. Controllers can be built using any web or mobile framework/technology of your choosing.
 
-If you are interested in studying/extending the [Faber](./AliceFaberAcmeDemo/controllers/faber-controller/README.md), [Alice](/AliceFaberAcmeDemo/controllers/alice-controller/README.md) or [Acme](/AliceFaberAcmeDemo/controllers/acme-controller/README.md) controller codebases, each controller contains documentation with specific implementation details and how-tos for setting up development and debugging environments.
+If you are interested in studying/extending the [Faber](./controllers/faber-controller/README.md), [Alice](./controllers/alice-controller/README.md) or [Acme](./controllers/acme-controller/README.md) controller codebases, each controller contains documentation with specific implementation details and how-tos for setting up development and debugging environments.
