@@ -1,11 +1,9 @@
 #!/bin/bash
 
-shopt -s nocasematch
-
-cd $(dirname $0)
-
-DEMO="$1"
-shift
+function start_logs() {
+	cd ./docker
+	docker-compose logs -f --tail ${TAIL:-10}
+}
 
 function web_start() {
 	echo "Starting all agents and controllers, this may take a moment."
@@ -42,20 +40,70 @@ function web_start() {
 
 	export $DOCKER_ENV
 
-	docker-compose -f ./docker/docker-compose.demo.yml up -d
+	docker-compose -f ./docker/docker-compose.yml up -d
+	if [ "$LOGS" ]; then
+		start_logs
+	fi
 	exit 0
 }
 
 function web_down() {
-	docker-compose -f ./docker/docker-compose.demo.yml down
+	docker-compose -f ./docker/docker-compose.yml down
 	exit 0
 }
+
+function display_help() {
+	help="$(basename "$0") [webstart|webdown|logs] [-h|--help] [-l|--logs]
+
+1) webstart will start all agents and controllers in detached mode.
+	Passing the additional logging option (-l|--logs) will follow and output logs to the terminal.
+
+	Example usage: ./run_demo webstart [-l|logs]
+
+2) webdown will stop all agents and controllers
+	
+	Example usage: ./run_demo webdown
+
+3) logs will will attach to a currently running demo and output logs to the terminal
+	Note: this will only work for an already running demo.
+
+	Example: ./run_demo logs
+
+Options:
+	-h|--help  Help
+	-l|--logs  Display and follow log output in terminal"
+	echo "$help"
+}
+
+shopt -s nocasematch
+
+cd $(dirname $0)
+
+for i in "$@"
+do
+	case $i in
+	-h|--help)
+		display_help
+		exit 0
+	;;
+	-l|--logs)
+		LOGS=1
+	;;
+	webstart|webdown)
+		DEMO=$i
+	;;
+	logs)
+		start_logs
+		exit 0
+	;;
+	esac
+done
 
 if [ "$DEMO" = "webstart" ]; then
 	web_start
 elif [ "$DEMO" = "webdown" ]; then
 	web_down
 else
-	echo "Please choose from from 'webstart' or 'webdown'."
+	display_help
 	exit 1
 fi
