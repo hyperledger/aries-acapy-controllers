@@ -5,7 +5,7 @@ services:
     faber-agent:
         command: ['faber --port 8020']
         build:
-            context: https://github.com/hyperledger/aries-cloudagent-python.git
+            context: https://github.com/petridishdev/aries-cloudagent-python.git#openapi-demo
             dockerfile: ./docker/Dockerfile.demo
         ports:
             - 8020-8027:8020-8027
@@ -20,7 +20,7 @@ services:
     alice-agent:
         command: ['alice --port 8030']
         build:
-            context: https://github.com/hyperledger/aries-cloudagent-python.git
+            context: https://github.com/petridishdev/aries-cloudagent-python.git#openapi-demo
             dockerfile: ./docker/Dockerfile.demo
         ports:
             - 8030-8037:8030-8037
@@ -35,7 +35,7 @@ services:
     acme-agent:
         command: ['acme --port 8040']
         build:
-            context: https://github.com/petridishdev/aries-cloudagent-python.git#acme-complete
+            context: https://github.com/petridishdev/aries-cloudagent-python.git#openapi-demo
             dockerfile: ./docker/Dockerfile.demo
         ports:
             - 8040-8047:8040-8047
