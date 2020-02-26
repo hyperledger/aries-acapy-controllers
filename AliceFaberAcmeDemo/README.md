@@ -75,6 +75,8 @@ You should have the controllers open in three different tabs of your browser:
 
 Alice 👩 is a former student of Faber College ("Knowledge is Good") 🎓and wants to work for the coveted startup, Acme 🚀. The job Alice is looking to land requires a college diploma. Alice will connect with Faber to obtain her degree and then provide proof of her education to Acme in order to land her dream job.
 
+_Note for developers: If you are interested in the code behind each of the various steps in this demo, check out the [Code Links](./README_code_links.md) documentation._
+
 **Steps:**
 
 This part will take you through the specific steps of the Faber-Alice-Acme workflow. Faber, Alice and Acme are each tailored to perform specific functions, as you will see. Throughout every interaction keep in mind that the agents are doing all the work behind the scenes. The controllers are interacting through an API with the agents.
