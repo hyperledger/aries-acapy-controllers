@@ -28,18 +28,22 @@ _See [Note to Developers](#note-to-developers) if you are a developer looking fo
 
 _Note for Safari users: It is recommended to use Chrome for this demo. While the demo has been tested with Safari there are certain features that may not function properly in that browser. The demo has not been tested with other browsers so YMMV, depending on which browser you use._
 
-In your browser, go to the docker playground service [Play with VON](http://play-with-von.vonx.io) (from the BC Gov). On the title screen, click "Start". On the next screen, click (in the left menu) "+Add a new instance". That will start up a terminal in your browser. Run the following commands to start the Web Demo:
+In your browser, go to a docker playground service [Play with Docker](https://labs.play-with-docker.com/) (from Docker). To use the service you need an free account on [Docker Hub](https://hub.docker.com/).
+
+> NOTE: For reasons not quite clear to us, this demo does **NOT** run on the similar "Play with VON" service operated by the Government of British Columbia. We'll remove this comment if that changes.
+
+On the [Play with Docker](https://labs.play-with-docker.com/) title screen, click "Start". On the next screen, click (in the left menu) "+Add a new instance". That will start up a terminal in your browser. Run the following commands to start the Web Demo:
 
 ```
-git clone https://github.com/petridishdev/aries-acapy-controllers.git
-cd aries-acapy-controllers/AliceFaberAcmeDemo
-LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo webstart
+$ git clone https://github.com/hyperleger/aries-acapy-controllers.git
+$ cd aries-acapy-controllers/AliceFaberAcmeDemo
+$ LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo webstart
 
 ```
 
-It may take a while for the all the agents and controllers to start up. You will also notice a number of ports appear once the demo is up. You will want to click the `9021`, `9031`, and `9041` ports to open up the Faber, Alice and Acme controllers in separate browser tabs, respectively.
+It may take a while for the all the agents and controllers to start up. You will also notice a number of ports appear once the demo is up. You will want to click the `9021`, `9031`, and `9041` ports to open up the Faber, Alice and Acme controllers in separate browser tabs, respectively. These are the equivalent to the `http://localhost:<port>` URLs referenced later in the demo.
 
-_If you are interested in studying the APIs exposed by agents, click on the `8021`, `8031`, or `8041` ports to open up Swagger UIs (API explorers) for Faber, Alice or Acme agents respectively._
+_If you are interested in studying the APIs exposed by agents, click on the `8021`, `8031`, or `8041` ports to open up OpenAPI/Swagger UIs (API explorers) for Faber, Alice or Acme agents respectively._
 
 ### Running With Docker
 
@@ -53,7 +57,7 @@ This will be the easiest setup option.
 
 The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally).
 
-**Note: the demos will not work without a local VON Network running.**
+**Note: running the demo locally will not work without a local VON Network running.**
 
 ##### ACA-Py Agents
 
