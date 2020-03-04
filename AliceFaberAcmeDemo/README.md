@@ -43,7 +43,7 @@ _If you are interested in studying the APIs exposed by agents, click on the `802
 
 ### Running With Docker
 
-This will be the easiest setup option. Please see the [Docker Web Demo](./README_web.md) documentation for instructions.
+This will be the easiest setup option.
 
 ### Running Locally
 
@@ -51,7 +51,7 @@ This will be the easiest setup option. Please see the [Docker Web Demo](./README
 
 ##### VON Network
 
-The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally) or [here](./README_web.md#von-network).
+The demos require a Hyperledger Indy Node network. Is is recommended to use the [VON Network](https://github.com/bcgov/von-network), developed as a portable Indy Node Network implementation for local development. Instructions for setting up the `von-network` can be viewed [here](https://github.com/bcgov/von-network#running-the-network-locally).
 
 **Note: the demos will not work without a local VON Network running.**
 
