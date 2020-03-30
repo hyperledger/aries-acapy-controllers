@@ -17,7 +17,7 @@
                 <small class="text-muted">Presentation Exchange ID:&nbsp;</small>
                 <p>{{ proof.presentation_exchange_id }}</p>
             </div>
-            {{#eq proof.state 'verified'}}
+            {{#eq proof.verified 'true'}}
             <div>
                 <span>
                     <i class="fas fa-check"></i>
