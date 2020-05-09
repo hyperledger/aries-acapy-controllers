@@ -5,7 +5,7 @@ COPY package*.json /app/
 RUN npm install
 COPY . .
 ARG RUNMODE
-ARG ALICE_AGENT_HOST=${ALICE_AGENT_HOST-"localhost"}
+ARG ALICE_AGENT_HOST=${ALICE_AGENT_HOST:-"localhost"}
 ENV RUNMODE=${RUNMODE} ALICE_AGENT_HOST=${ALICE_AGENT_HOST}
 RUN npm run build
 
