@@ -49,6 +49,26 @@ _If you are interested in studying the APIs exposed by agents, click on the `802
 
 This will be the easiest setup option.
 
+### Running in the Cloud With AWS
+
+_Note: These instructions apply when running the demo in a VPS or on your own server host and assumes you have already set up a cloud/server instance for running the demo._
+
+Running the demo in an AWS instance is almnost exactly the same as running the demo locally with docker, however there is a caveat to getting the Alice controller to successfully connect to its agent.
+
+Unlike Faber and Acme demo controllers, which are server-side applications (and are therefore hosted in the same network as their respective agents), Alice controller is an Angular application, that runs directly in your browser on your local machine. By default, controllers assume agents are running in the same network as the controllers (i.e `localhost`). However, `localhost` on your machine will not be the same as `localhost` on your AWS instance, therefore you have to explicitly build the Alice controller specifying the location where the Agent is hosted so it can connect and issue Agent API requests.
+
+To do this you can provide an `ALICE_AGENT_HOST` environment variable when executing the `./run_demo` command as such:
+
+```
+$ LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ALICE_AGENT_HOST=<Your AWS Instance's Public DNS or IPv4> ./run_demo webstart
+```
+
+_Note:_ you may have to destroy any previously built Alice controller docker images so it will rebuild correctly with the correct agent context.
+
+#### Opening Ports
+
+Ensure that you have innbound and outbound rules enabled for the port range 9021-9041 on your AWS instance. Additionally you will need to enable inbound and outbound rules for port 8031 so that Alice controller can communicate with its agent.
+
 ### Running Locally
 
 #### Prerequisites
