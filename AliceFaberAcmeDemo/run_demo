@@ -9,7 +9,7 @@ function web_start() {
 	echo "Starting all agents and controllers, this may take a moment."
 
 	FABER_AGENT_HOST="faber-agent"
-	ALICE_AGENT_HOST="localhost"
+	ALICE_AGENT_HOST=${ALICE_AGENT_HOST:-"localhost"}
 	ACME_AGENT_HOST="acme-agent"
 
 	if [ -z "${PWD_HOST_FQDN}" ]; then
@@ -32,6 +32,8 @@ function web_start() {
 
 	AGENT_URLS="FABER_AGENT_HOST=${FABER_AGENT_HOST} ALICE_AGENT_HOST=${ALICE_AGENT_HOST} ACME_AGENT_HOST=${ACME_AGENT_HOST}"
 	DOCKER_ENV="$AGENT_URLS RUNMODE=${RUNMODE} DOCKERHOST=${DOCKERHOST}"
+
+	echo "Agent Hosts: ${AGENT_URLS}"
 
 	if ! [ -z "$LEDGER_URL" ]; then
 		GENESIS_URL="${LEDGER_URL}/genesis"
