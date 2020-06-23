@@ -10,6 +10,8 @@ _See [Note to Developers](#note-to-developers) if you are a developer looking fo
   - [Table of Contents](#table-of-contents)
     - [Running in a Browser](#running-in-a-browser)
     - [Running With Docker](#running-with-docker)
+    - [Running in the Cloud With AWS](#running-in-the-cloud-with-aws)
+      - [Opening Ports](#opening-ports)
     - [Running Locally](#running-locally)
       - [Prerequisites](#prerequisites)
         - [VON Network](#von-network)
