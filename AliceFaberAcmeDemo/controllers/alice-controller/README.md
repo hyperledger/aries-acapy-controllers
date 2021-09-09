@@ -32,7 +32,7 @@ For example on Linux:
 
 ```
 $ npm install
-$ ng serve
+$ ng serve --aot
 ```
 
 You may see an output like:
