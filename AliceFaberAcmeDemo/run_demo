@@ -13,7 +13,11 @@ function web_start() {
 	ACME_AGENT_HOST="acme-agent"
 
 	if [ -z "${PWD_HOST_FQDN}" ]; then
-		DOCKERHOST=$(docker run --rm --net=host eclipse/che-ip)
+		if [[ $(uname) == "Linux" ]] ; then
+			DOCKERHOST=$(docker run --rm --net=host eclipse/che-ip)
+		else
+			DOCKERHOST=host.docker.internal
+		fi
 		RUNMODE="docker"
 	else
 		PWD_HOST="${PWD_HOST_FQDN}"
