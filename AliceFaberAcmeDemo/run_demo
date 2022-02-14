@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# getDockerHost; for details refer to https://github.com/bcgov/DITP-DevOps/tree/main/code/snippets#getdockerhost
+. /dev/stdin <<<"$(cat <(curl -s --raw https://raw.githubusercontent.com/bcgov/DITP-DevOps/main/code/snippets/getDockerHost))"
+
 function start_logs() {
 	cd ./docker
 	docker-compose logs -f --tail ${TAIL:-10}
@@ -13,7 +16,7 @@ function web_start() {
 	ACME_AGENT_HOST="acme-agent"
 
 	if [ -z "${PWD_HOST_FQDN}" ]; then
-		DOCKERHOST=$(docker run --rm --net=host eclipse/che-ip)
+		DOCKERHOST=$(getDockerHost)
 		RUNMODE="docker"
 	else
 		PWD_HOST="${PWD_HOST_FQDN}"
