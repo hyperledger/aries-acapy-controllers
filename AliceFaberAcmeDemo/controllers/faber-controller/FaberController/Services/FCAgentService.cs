@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using FaberController.Enums;
 using Newtonsoft.Json.Linq;
@@ -136,8 +138,7 @@ namespace FaberController.Services
                 response.EnsureSuccessStatusCode();
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                var jsonResponse = JObject.Parse(responseString);
-                return jsonResponse.Value<JObject>("schema_json");
+                return JObject.Parse(responseString);
             }
             catch (Exception ex)
             {
@@ -187,11 +188,11 @@ namespace FaberController.Services
         {
             try
             {
-
-                using var content = new StringContent(credential);
+                using var content = new StringContent(credential, Encoding.UTF8, "application/json");
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await _http.PostAsync("/issue-credential/send", content);
-
-                response.EnsureSuccessStatusCode();
+                 response.EnsureSuccessStatusCode();
+                var result = await response.Content.ReadAsStringAsync();
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return JObject.Parse(responseString);
