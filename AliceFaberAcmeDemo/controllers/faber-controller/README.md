@@ -43,4 +43,4 @@ You can now open your browser tab to either `localhost:5000` or `localhost:5001`
 
 ### Notes
 
-_Note: Faber Controller has already been configured to connect to it's agent on localhost:8021. If the controller is not connected to it's agent you will see a red status indicator on the top right-hand side of the navbar. If the agent is succesffully connected, you will see a green status indicator._
+_Note: Faber Controller has already been configured to connect to it's agent on localhost:8021. If the controller is not connected to it's agent you will see a red status indicator on the top right-hand side of the navbar. If the agent is successfully connected, you will see a green status indicator._

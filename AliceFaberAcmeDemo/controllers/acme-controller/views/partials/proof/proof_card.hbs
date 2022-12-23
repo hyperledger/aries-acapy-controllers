@@ -3,12 +3,17 @@
         <div class="card-title">
             <h5>
                 <span>{{ proof.presentation_request.name }}</span>
-                <span
-                    *ngIf="proof?.presentation_request?.version">&nbsp;({{ proof.presentation_request.version }})</span>
+                {{#if proof.presentation_request.version}}
+                    <span>&nbsp;({{ proof.presentation_request.version }})</span>
+                {{/if}}
             </h5>
             <small>
-                <span *ngIf="proof?.initiator === 'self'">Sent&nbsp;</span>
-                <span *ngIf="proof?.initiator === 'external'">Received&nbsp;</span>
+                {{#eq proof.initiator 'self'}}
+                    <span>Sent&nbsp;</span>
+                {{/eq}}
+                {{#eq proof.initiator 'external'}}
+                    <span>Received&nbsp;</span>
+                {{/eq}}
             </small>
             <small class="text-muted">{{ proof.created_at }}</small>
         </div>
