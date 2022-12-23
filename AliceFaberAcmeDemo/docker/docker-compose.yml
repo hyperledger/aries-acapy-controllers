@@ -73,18 +73,18 @@ services:
             - aca
         depends_on:
             - alice-agent
-    # acme-controller:
-    #     build:
-    #         context: ../controllers/acme-controller/
-    #     ports:
-    #         - 9041:3000
-    #     networks:
-    #         - aca
-    #     depends_on:
-    #         - acme-agent
-    #     environment:
-    #         - RUNMODE=${RUNMODE}
-    #         - ACME_AGENT_HOST=${ACME_AGENT_HOST}
+    acme-controller:
+        build:
+            context: ../controllers/acme-controller/
+        ports:
+            - 9041:3000
+        networks:
+            - aca
+        depends_on:
+            - acme-agent
+        environment:
+            - RUNMODE=${RUNMODE}
+            - ACME_AGENT_HOST=${ACME_AGENT_HOST}
 
 networks:
     aca:
