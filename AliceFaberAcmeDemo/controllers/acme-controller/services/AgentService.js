@@ -143,7 +143,10 @@ class AgentService {
                 hostname: hostname,
                 port: port,
                 path: '/present-proof/send-request',
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }, proofRequest);
         } catch (error) {
             console.error(error);

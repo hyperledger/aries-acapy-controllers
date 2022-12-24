@@ -45,7 +45,7 @@ const proofJSON = {
       },
       "requested_predicates": {
         "0_age_GE_uuid": {
-          "name": "age",
+          "name": "birthdate_dateint",
           "p_type": ">=",
           "p_value": 18,
           "restrictions": [

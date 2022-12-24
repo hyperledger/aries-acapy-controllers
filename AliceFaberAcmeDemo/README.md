@@ -39,7 +39,7 @@ On the [Play with Docker](https://labs.play-with-docker.com/) title screen, clic
 ```
 $ git clone https://github.com/hyperledger/aries-acapy-controllers.git
 $ cd aries-acapy-controllers/AliceFaberAcmeDemo
-$ LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo webstart
+$ LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo webstart
 
 ```
 
@@ -62,7 +62,7 @@ Unlike Faber and Acme demo controllers, which are server-side applications (and 
 To do this you can provide an `ALICE_AGENT_HOST` environment variable when executing the `./run_demo` command as such:
 
 ```
-$ LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ALICE_AGENT_HOST=<Your AWS Instance's Public DNS or IPv4> ./run_demo webstart
+$ LEDGER_URL=http://test.bcovrin.vonx.io ALICE_AGENT_HOST=<Your AWS Instance's Public DNS or IPv4> ./run_demo webstart
 ```
 
 _Note:_ you may have to destroy any previously built Alice controller docker images so it will rebuild correctly with the correct agent context.
@@ -179,4 +179,4 @@ Congratulations! You have finished the Faber-Alice-Acme demo. This is a good cha
 
 Each controller used in the demo is built with a different web framework, which is intended to further demonstrate the versatility of agents. Controllers can be built using any web or mobile framework/technology of your choosing.
 
-If you are interested in studying/extending the [Faber](./controllers/faber-controller/README.md), [Alice](./controllers/alice-controller/README.md) or [Acme](./controllers/acme-controller/README.md) controller codebases, each controller contains documentation with specific implementation details and how-tos for setting up development and debugging environments.
+If you are interested in studying/extending the [Faber](./controllers/faber-controller/README.md), [Alice](./controllers/alice-controller/README.md) or [Acme](./controllers/acme-controller/README.md) controller code bases, each controller contains documentation with specific implementation details and how-tos for setting up development and debugging environments.
