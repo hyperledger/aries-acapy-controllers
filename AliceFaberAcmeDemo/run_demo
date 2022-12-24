@@ -58,7 +58,7 @@ function web_down() {
 }
 
 function build() {
-	docker compose -f ./docker/docker-compose.yml build --no-cache
+	docker-compose -f ./docker/docker-compose.yml build --no-cache
 	exit $?
 }
 
