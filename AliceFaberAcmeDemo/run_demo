@@ -57,8 +57,13 @@ function web_down() {
 	exit 0
 }
 
+function build() {
+	docker compose -f ./docker/docker-compose.yml build --no-cache
+	exit $?
+}
+
 function display_help() {
-	help="$(basename "$0") [webstart|webdown|logs] [-h|--help] [-l|--logs]
+	help="$(basename "$0") [build|webstart|webdown|logs] [-h|--help] [-l|--logs]
 
 1) webstart will start all agents and controllers in detached mode.
 	Passing the additional logging option (-l|--logs) will follow and output logs to the terminal.
@@ -73,6 +78,11 @@ function display_help() {
 	Note: this will only work for an already running demo.
 
 	Example: ./run_demo logs
+
+4) build will do a '--no-cache' docker compose build. Not normally needed as 'webstart'
+   does a build, but the "no-cache" option can be useful in some cases with docker caching.
+
+	Example: ./run_demo build
 
 Options:
 	-h|--help  Help
@@ -96,6 +106,9 @@ do
 	;;
 	webstart|webdown)
 		DEMO=$i
+	;;
+	build)
+		build
 	;;
 	logs)
 		start_logs

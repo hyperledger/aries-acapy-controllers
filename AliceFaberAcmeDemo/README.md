@@ -37,9 +37,9 @@ In your browser, go to a docker playground service [Play with Docker](https://la
 On the [Play with Docker](https://labs.play-with-docker.com/) title screen, click "Start". On the next screen, click (in the left menu) "+Add a new instance". That will start up a terminal in your browser. Run the following commands to start the Web Demo:
 
 ```
-$ git clone https://github.com/hyperledger/aries-acapy-controllers.git
-$ cd aries-acapy-controllers/AliceFaberAcmeDemo
-$ LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo webstart
+git clone https://github.com/hyperledger/aries-acapy-controllers.git
+cd aries-acapy-controllers/AliceFaberAcmeDemo
+LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo webstart
 
 ```
 
