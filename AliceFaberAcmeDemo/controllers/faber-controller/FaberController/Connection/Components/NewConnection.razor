@@ -2,6 +2,9 @@
 
 @layout Connection
 
+@using ZXing;
+@using ZXing.QrCode;
+@using System.IO;
 @using FaberController.Shared.Components.ObjectViewer
 @using FaberController.Services
 @using Newtonsoft.Json.Linq
@@ -35,6 +38,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group"> 
+                    <label>Or scan the following QR Code:</label>
+                    <div/>
+                    <object data="@($"data:image/svg+xml;utf8,{Uri.EscapeDataString(QrCodeContent)}")" type="image/svg+xml" width="300" height="300"></object>
+                </div>
             </div>
         </div>
     }
@@ -44,6 +53,7 @@
     public JObject Invitation { get; set; }
     public string InvitationObject { get; set; }
     public string InvitationUrl { get; set; }
+    public string QrCodeContent { get; set; }
 
     public async void OnSubmit()
     {
@@ -53,6 +63,7 @@
         {
             InvitationObject = Invitation["invitation"].ToString();
             InvitationUrl = Invitation["invitation_url"].ToString();
+            QrCodeContent = GenerateQrCode(InvitationUrl);
         }
         base.StateHasChanged();
     }
@@ -60,5 +71,25 @@
     public async void copy(string selector)
     {
         await JSRuntime.InvokeAsync<string>("copyInputValue", selector);
+    }
+
+    private string GenerateQrCode(string invitationUrl)
+    {
+        var qrValue = invitationUrl;
+
+        var barcodeWriter = new BarcodeWriterSvg
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = new QrCodeEncodingOptions
+                {
+                    Height = 300,
+                    Width = 300
+                }
+            };
+
+        var qrCodeImage = barcodeWriter.Write(qrValue);
+        var qrCodeContent = qrCodeImage.Content;
+
+        return qrCodeContent;
     }
 }
