@@ -1,5 +1,8 @@
 {{> component_nav moreNavLinks=navLinks}}
 
+<!-- Assurez-vous d'inclure le script qrcode.min.js avant d'essayer de l'utiliser -->
+<script src="/javascripts/qrcode.min.js"></script>
+
 <div class="content">
     <div class="container">
         <form novalidate autocomplete="false" method="POST" action="/connections/new">
@@ -35,8 +38,28 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Nouvelle section pour le QR Code -->
+                <div class="form-group">
+                    <label>Or scan the following QR Code :</label>
+                    <div id="qrcode"></div>
+                </div>
+
             </div>
         </div>
         {{/if}}
     </div>
 </div>
+
+<!-- Script pour générer le QR Code -->
+<script type="text/javascript">
+    {{#if invitation}}
+    window.onload = function() {
+        let qr = new QRCode(document.getElementById("qrcode"), {
+            text: "{{{ invitation.invitation_url }}}",
+            width: 512,
+            height: 512,
+        });
+    };
+    {{/if}}
+</script>
