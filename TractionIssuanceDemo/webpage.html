@@ -1,0 +1,110 @@
+<html lang="en">
+    <head>
+        <title>Traction Issuance Demo</title>
+    </head>
+    <script>
+        let interval = null;
+
+        // event listeners
+        function onLoad() {
+            document.getElementById('generateQr').addEventListener('click', onClick_generateQR);
+            document.getElementById('resetPage').addEventListener('click', onClick_resetPage);
+            document.getElementById('requestPresentation').addEventListener('click', onClick_requestPresentation);
+            document.getElementById('revoke').addEventListener('click', onClick_revoke);
+        }
+        function onClick_generateQR() {
+            document.getElementById('start').style.display = 'none';
+            document.getElementById('qrCode').style.display = 'block';
+            document.getElementById('reset').style.display = 'block';
+            document.getElementById('qrCodeImage').src = '/qrCode';
+            interval = setInterval(getStatus, 1000);
+        }
+        function onClick_resetPage() {
+            document.getElementById('start').style.display = 'block';
+            document.getElementById('qrCode').style.display = 'none';
+            document.getElementById('additionalActions').style.display = 'none';
+            document.getElementById('reset').style.display = 'none';
+            document.getElementById('qrCodeImage').src = '';
+            document.getElementById('results').innerHTML = '';
+            stopStatusCheck();
+            resetPage();
+        }
+        function onClick_requestPresentation() {
+            let request = new XMLHttpRequest();
+            request.open('POST', '/presentationRequest', true);
+            request.send();
+        }
+        function onClick_revoke() {
+            let request = new XMLHttpRequest();
+            request.open('POST', '/revoke', true);
+            request.send();
+        }
+
+        // calls to server
+        function getStatus() {
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.status === 200) {
+                    document.getElementById('results').innerHTML = request.responseText;
+                    if (request.responseText.includes('Connection has been made')) {
+                        document.getElementById('qrCode').style.display = 'none';
+                    }
+                    if (request.responseText.includes('User declined credential offer')) {
+                        stopStatusCheck();
+                    }
+                    if (request.responseText.includes('User received credential in their wallet')) {
+                        document.getElementById('additionalActions').style.display = 'block';
+                    }
+                    if (request.responseText.includes('Credential has been revoked')) {
+                        document.getElementById('additionalActions').style.display = 'none';
+                        stopStatusCheck();
+                    }
+                }
+            }
+            request.open('GET', '/status', true);
+            request.send();
+        }
+
+        function resetPage() {
+            let request = new XMLHttpRequest();
+            request.open('POST', '/reset', true);
+            request.send();
+        }
+
+        // add load listener
+        window.addEventListener('load', onLoad);
+
+        // helpers
+        function stopStatusCheck() {
+            if (interval !== null) {
+                clearInterval(interval);
+                interval = null;
+            }
+        }
+    </script>
+    <body>
+        <h1>Welcome to the Traction Issuance Demo</h1>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div id="start">
+                <div>To start, click the button</div>
+                <div style="margin-top: 5px;"><button id="generateQr">Generate QR Code</button></div>
+            </div>
+            <div id="qrCode" style="display: none;">
+                <img id="qrCodeImage" src="" alt="QR Code" />
+            </div>
+            <div id="additionalActions" style="display: none;">
+                <div style="display: flex; flex-direction: row;">
+                    <button id="requestPresentation">Request a Presentation</button>
+                    <button id="revoke" style="margin-left: 8px;">Revoke Credential</button>
+                </div>
+            </div>
+            <div id="results" style="display: flex; flex-direction: column; gap: 2px;"></div>
+            <div id="reset" style="display: none;">
+                <div><button id="resetPage">Reset</button></div>
+            </div>
+        </div>
+        <div style="width: 100vw; position: absolute; bottom: 5px; left: 0; display: flex; justify-content: center;">
+            Version 1.0 created by <a href="https://www.credivera.ca" style="margin-left: 4px;">www.credivera.ca</a>
+        </div>
+    </body>
+</html>
