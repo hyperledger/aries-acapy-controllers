@@ -1,0 +1,11 @@
+{
+    "tenantId": "",
+    "apiKey": "",
+    "credentialDefinitionId": "",
+    "autoIssue": false,
+    "credentialData": {
+        "givenName": "John",
+        "familyName": "Doe",
+        "expires": "20231231"
+    }
+}

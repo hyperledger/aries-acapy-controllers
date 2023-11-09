@@ -1,0 +1,17 @@
+{
+    "name": "traction_issuance_demo",
+    "version": "1.0.0",
+    "type": "module",
+    "private": false,
+    "dependencies": {
+        "axios": "^1.6.0",
+        "koa": "^2.14.2",
+        "koa-body": "^6.0.1",
+        "koa-router": "^12.0.1",
+        "open": "^9.1.0",
+        "qrcode": "^1.5.3"
+    },
+    "scripts": {
+        "start": "node ./demo.js"
+    }
+}
