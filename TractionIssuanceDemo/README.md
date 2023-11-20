@@ -40,7 +40,7 @@ In this example, localtunnel is suggested, as the demo app builds with Node as w
 7. Add the Tenant ID from the Profile page to the config.json file
 8. Click the connect button to connect to bcovrin-test
 9. Go to the Settings page
-10. Add the url to your exposed tunnel endpoint in the **WebHook URL** using the port 8080  
+10. Add the url to your exposed tunnel endpoint in the **WebHook URL**  
   For example, if Localtunnel gave you `https://abc-xyz.loca.lt` then the Webhook URL will be `https://abc-xyz.loca.lt`
 11. Enter the **WebHook Key** of: `demo-issuance`
 12. Save changes
