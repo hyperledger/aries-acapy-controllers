@@ -185,3 +185,9 @@ $RECYCLE.BIN/
 
 # Docs build
 _build/
+
+###
+### Node
+###
+
+node_modules/
