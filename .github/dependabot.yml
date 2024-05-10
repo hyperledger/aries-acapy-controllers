@@ -1,0 +1,80 @@
+ # For details on how this file works refer to:
+ #   - https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  # Maintain dependencies for TypeScript and JavaScript
+  - package-ecosystem: "npm"
+    directory: "/AliceFaberAcmeDemo/controllers/acme-controller"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-patch"]
+
+  # Maintain dependencies for TypeScript and JavaScript
+  - package-ecosystem: "npm"
+    directory: "/AliceFaberAcmeDemo/controllers/alice-controller"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-patch"]
+
+  # Maintain dependencies for TypeScript and JavaScript
+  - package-ecosystem: "npm"
+    directory: "/TractionIssuanceDemo"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-patch"]
+
+  # Maintain dependencies for 
+  - package-ecosystem: "nuget"
+    directory: "/AliceFaberAcmeDemo/controllers/faber-controller/FaberController"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-patch"]
+
+  # Maintain dependencies for docker
+  - package-ecosystem: "docker"
+    directory: "/AliceFaberAcmeDemo/controllers/acme-controller"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+
+  # Maintain dependencies for docker
+  - package-ecosystem: "docker"
+    directory: "/AliceFaberAcmeDemo/controllers/alice-controller"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+
+  # Maintain dependencies for docker
+  - package-ecosystem: "docker"
+    directory: "/AliceFaberAcmeDemo/controllers/faber-controller"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+      
+
