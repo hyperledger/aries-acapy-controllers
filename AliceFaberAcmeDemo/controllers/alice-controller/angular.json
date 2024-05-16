@@ -123,6 +123,5 @@
         }
       }
     }
-  },
-  "defaultProject": "alice-controller"
+  }
 }
