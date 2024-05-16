@@ -1,8 +1,8 @@
 # Stage: build
-FROM node:14 as build
+FROM node:18 as build
 WORKDIR /app
 COPY package*.json /app/
-RUN npm install
+RUN npm install --force
 COPY . .
 ARG RUNMODE
 ARG ALICE_AGENT_HOST=${ALICE_AGENT_HOST:-"localhost"}

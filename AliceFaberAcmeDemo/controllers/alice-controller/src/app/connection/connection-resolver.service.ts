@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { AgentService } from '../services/agent.service';
 
@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ConnectionResolverService implements Resolve<any[]> {
+export class ConnectionResolverService  {
 
   constructor(private agentService: AgentService) { }
 

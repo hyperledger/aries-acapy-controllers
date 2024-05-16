@@ -124,5 +124,7 @@
       }
     }
   },
-  "defaultProject": "alice-controller"
+  "cli": {
+    "analytics": false
+  }
 }
