@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AgentService } from 'src/app/services/agent.service';
@@ -8,7 +8,7 @@ import { map, debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/opera
 import { Observable, timer, BehaviorSubject } from 'rxjs';
 
 function debouncedInvitationValidator(): AsyncValidatorFn {
-  return (control: FormControl): Observable<ValidationErrors | null> => {
+  return (control: UntypedFormControl): Observable<ValidationErrors | null> => {
     return timer(300)
       .pipe(
         map(() => {
@@ -29,23 +29,23 @@ function debouncedInvitationValidator(): AsyncValidatorFn {
   styleUrls: ['./accept-connection.component.scss']
 })
 export class AcceptConnectionComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   invitationUrlError$ = new BehaviorSubject<string>(null);
 
-  constructor(private agentService: AgentService, private fb: FormBuilder, private router: Router) {
+  constructor(private agentService: AgentService, private fb: UntypedFormBuilder, private router: Router) {
     this.form = this.fb.group({
       invitation: [null, Validators.required, debouncedInvitationValidator()],
       invitationUrl: [null, Validators.nullValidator]
     });
   }
 
-  public get invitation(): FormControl {
-    return this.form && this.form.get('invitation') as FormControl;
+  public get invitation(): UntypedFormControl {
+    return this.form && this.form.get('invitation') as UntypedFormControl;
   }
 
-  public get invitationUrl(): FormControl {
-    return this.form && this.form.get('invitationUrl') as FormControl;
+  public get invitationUrl(): UntypedFormControl {
+    return this.form && this.form.get('invitationUrl') as UntypedFormControl;
   }
 
   ngOnInit() {
