@@ -25,7 +25,7 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.7",
     "tslib": "^2.6.3",
-    "zone.js": "^0.13.3"
+    "zone.js": "^0.14.8"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^16.0.1",
