@@ -12,7 +12,6 @@ import { ToDatePipe } from './pipes/to-date.pipe';
     declarations: [ComponentNavComponent, EmptyListComponent, ToDatePipe],
     exports: [
         CommonModule,
-        HttpClientModule,
         RouterModule,
         // Components
         ComponentNavComponent,
