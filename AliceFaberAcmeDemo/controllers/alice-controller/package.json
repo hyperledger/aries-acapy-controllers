@@ -24,7 +24,7 @@
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.7",
-    "tslib": "^2.6.3",
+    "tslib": "^2.7.0",
     "zone.js": "^0.13.3"
   },
   "devDependencies": {
